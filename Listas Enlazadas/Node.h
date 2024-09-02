@@ -13,5 +13,6 @@ public:
 	Node* getNext();
 	void setPersona(Persona &per); //Cambiar el obj del nodo
 	void setNode(Node* next); //cambia a lo que ve
+
 };
 

@@ -11,6 +11,7 @@ int main()
     Persona* per3 = new Persona("3333", "Moe", 32);
     Persona* per4 = new Persona("444", "Randy", 4);
     Persona* per5 = new Persona("555", "Carlos", 23);
+    string cedula;
 
     //Enlazar los nodos
     Node* node5 = new Node(*per5, nullptr);
@@ -23,6 +24,26 @@ int main()
     pExt = node1;
 
     //Imprimir
+    while (pExt != nullptr) {
+        cout << pExt->getPersona()->toString() << endl;
+        pExt = pExt->getNext();
+    }
+
+    cout << "Elimanar un nodo" << endl << "Ingrese una cedula: ";
+    cin >> cedula;
+    cout << endl;
+    //Que sea el primer nodo
+    pExt = ppio;
+    if(pExt->getPersona()->getCedula() == cedula) {
+        ppio = pExt->getNext();
+        delete pExt;
+    }
+    else {
+        //no es el primero
+    }
+    pExt = ppio;
+
+    //Imprimir 2
     while (pExt != nullptr) {
         cout << pExt->getPersona()->toString() << endl;
         pExt = pExt->getNext();
