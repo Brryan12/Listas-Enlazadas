@@ -40,6 +40,13 @@ int main()
     }
     else {
         //no es el primero
+        while (pExt->getNext() != nullptr && pExt->getPersona()->getCedula() != cedula) {
+            pExt = pExt->getNext();
+ 
+        }
+        if (pExt->getNext() != nullptr) {
+            delete pExt;
+        }
     }
     pExt = ppio;
 

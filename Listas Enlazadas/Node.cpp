@@ -6,10 +6,10 @@ Node::Node()
 	next = nullptr;
 }
 
-Node::Node(Persona& Rper, Node* next)
+Node::Node(Persona& Rper, Node* nextp)
 {
 	this->per = (Persona*) &Rper;//per no deja
-	this->next = next;
+	next = nextp;
 }
 
 Node::~Node()
@@ -35,8 +35,8 @@ void Node::setPersona(Persona& Rper) //per
 	per = (Persona*)&Rper; //per
 }
 
-void Node::setNode(Node* next)
+void Node::setNode(Node* nextp)
 {
-	next = next;
+	next = nextp;
 }
 
