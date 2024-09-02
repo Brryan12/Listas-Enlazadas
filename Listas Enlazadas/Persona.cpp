@@ -2,6 +2,9 @@
 
 Persona::Persona(string cedula, string nombre, int edad): cedula(""), nombre(""), edad(0)
 {
+	this->cedula = cedula;
+	this->nombre = nombre;
+	this->edad = edad;
 }
 
 Persona::~Persona()
