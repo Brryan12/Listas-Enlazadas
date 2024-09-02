@@ -35,7 +35,7 @@ void Node::setPersona(Persona& Rper) //per
 	per = (Persona*)&Rper; //per
 }
 
-void Node::setNode(Node* nextp)
+void Node::setNext(Node* nextp)
 {
 	next = nextp;
 }

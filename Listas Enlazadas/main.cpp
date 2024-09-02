@@ -12,7 +12,7 @@ int main()
     Persona* per4 = new Persona("444", "Randy", 4);
     Persona* per5 = new Persona("555", "Carlos", 23);
     string cedula;
-
+    Node* borrado = nullptr;
     //Enlazar los nodos
     Node* node5 = new Node(*per5, nullptr);
     Node* node4 = new Node(*per4, node5);
@@ -45,7 +45,10 @@ int main()
  
         }
         if (pExt->getNext() != nullptr) {
-            delete pExt;
+ 
+            borrado = pExt->getNext();
+            pExt->setNext(borrado->getNext());
+            delete borrado;
         }
     }
     pExt = ppio;
