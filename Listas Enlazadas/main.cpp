@@ -44,8 +44,11 @@ int main()
             pExt = pExt->getNext();
  
         }
-        if (pExt->getNext() != nullptr) {
+        if (pExt->getNext() == nullptr) {
  
+ 
+        }
+        else {
             borrado = pExt->getNext();
             pExt->setNext(borrado->getNext());
             delete borrado;
