@@ -33,16 +33,32 @@ bool ContenedorL::existeCedula(string cedula) const
 
 int ContenedorL::lugarConCedula(string cedula) const
 {
+	Node* pExt = ppio;
+	int lugar = 1;
+	while (pExt != nullptr) {
+		if (pExt->getPersona()->getCedula() == cedula) {
+			return lugar;
+		}
+		lugar++;
+		pExt = pExt->getNext();
+	}
 	return 0;
 }
 
 bool ContenedorL::ingresarPersonaAlInicio(Persona& per)
 {
-	return false;
+	if (!existeCedula(per.getCedula())) {
+		ppio = new Node(per, ppio);
+		return true;
+	}
+	else
+		return false;
+
 }
 
 bool ContenedorL::ingresarPersonaAlFinal(Persona& per)
 {
+	Node* pExt = ppio;
 	return false;
 }
 
