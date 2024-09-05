@@ -9,6 +9,7 @@ private:
 	string nombre;
 	int edad;
 public:
+	Persona();
 	Persona(string cedula, string nombre, int edad);
 	virtual ~Persona();
 	void setCedula(string cedula);
@@ -16,7 +17,7 @@ public:
 	void setNombre(string nombre);
 	int getEdad() const;
 	string getCedula() const;
-	string getNombre() const ;
+	string getNombre() const;
 	string toString() const;
 
 };

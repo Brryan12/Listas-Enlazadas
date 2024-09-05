@@ -1,6 +1,13 @@
 #include "Persona.h"
 
-Persona::Persona(string cedula, string nombre, int edad): cedula(""), nombre(""), edad(0)
+Persona::Persona()
+{
+	this->cedula = "";
+	this->nombre = "";
+	this->edad = 0;
+}
+
+Persona::Persona(string cedula, string nombre, int edad) : cedula(""), nombre(""), edad(0)
 {
 	this->cedula = cedula;
 	this->nombre = nombre;
@@ -44,8 +51,8 @@ string Persona::getNombre() const
 string Persona::toString() const
 {
 	stringstream s;
-	
-	s<<"---Persona---" <<endl<< "Nombre: " << nombre << endl << "Cedula: " << cedula << endl << "Edad: " << edad << endl;
+
+	s << "---Persona---" << endl << "Nombre: " << nombre << endl << "Cedula: " << cedula << endl << "Edad: " << edad << endl;
 
 	return s.str();
 }
