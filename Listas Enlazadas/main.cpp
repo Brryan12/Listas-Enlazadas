@@ -35,13 +35,24 @@ int main() {
 	}
 	else
 		cout << "No existe la cedula: " << cedula<<endl;
-	cout << "ELiminar persona ingrese cedula: ";
+/*cout << "ELiminar persona ingrese cedula: ";
 	cin >> cedula;
 	if (COL->eliminarPersonaXCedula(cedula))
 		cout << "Se elimino" << endl;
 	else
 		cout << "No se elimino" << endl;
+*/
+	Persona* PM = NULL;
 
-	cout << COL->toString();
+	cout<< COL->toString() << endl;
+	
+	PM = COL->retPersDeMayorEdad();
+	if (PM) {
+		cout << "La persona más vieja es: "<<endl;
+		cout<<PM->toString() << endl;
+	}
+	else {
+		return NULL;
+	}
 	return 0;
 }
