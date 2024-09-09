@@ -37,7 +37,6 @@ int main() {
 		cout << "No existe la cedula: " << cedula<<endl;
 	cout << "ELiminar persona ingrese cedula: ";
 	cin >> cedula;
-	bool borrado = COL->eliminarPersonaXCedula(cedula);
 	if (COL->eliminarPersonaXCedula(cedula))
 		cout << "Se elimino" << endl;
 	else
