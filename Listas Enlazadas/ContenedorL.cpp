@@ -67,9 +67,44 @@ bool ContenedorL::ingresarPersonaOrdnxCedula(Persona& per)
 	return false;
 }
 
+/// <summary>
+/// Primero: Ver si en la lista hay nodos validos
+/// Segundo: Saber si el primero tiene  la cedula que se busca
+/// Tercero: Si no es el primero que buscamos, entonces recorremos la lista en busca de esa cedula
+/// Cuarto: Si La encontramos la borramos
+/// QUinto: Sino, si llegamos al final, nada se puede hacer retornamos false
+/// </summary>
+/// <param name="cedula"></param>
+/// <returns></returns>
 bool ContenedorL::eliminarPersonaXCedula(string cedula)
 {
-	return false;
+	Node* pExt = ppio;
+	Node* ptrTemp = NULL;
+	if (pExt != NULL) { //revisar que haya al menos un nodo
+		if (pExt->getPersona()->getCedula() == cedula) {
+			ppio = pExt->getNext();
+			delete pExt;
+			return true;
+		}
+		else {
+			while (pExt->getNext() != nullptr && pExt->getPersona()->getCedula()!=cedula) {
+				pExt = pExt->getNext();
+			}
+			if (pExt->getNext() != NULL) {
+				//Cedula encontrada
+				ptrTemp = pExt->getNext();
+				pExt->setNext(ptrTemp->getNext());
+				delete ptrTemp;
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	else{
+		return false;
+	}
 }
 
 bool ContenedorL::eliminarPersonaXLug(int posicion)
@@ -105,7 +140,13 @@ Persona& ContenedorL::retPersDeMayorEdad() const
 string ContenedorL::toString() const
 {
 	stringstream s;
-
+	Node* pExt = ppio;
+	s << "---Lista de Personas---" << endl;
+	while (pExt != NULL) {
+		s<<pExt->getPersona()->toString()<<endl;
+		
+		pExt = pExt->getNext();
+	}
 	return s.str();
 }
 
