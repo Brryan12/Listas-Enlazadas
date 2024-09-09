@@ -22,7 +22,7 @@ public:
 	bool eliminarTodo();
 
 	double promedioEdad() const;
-	Persona& retPersDeMayorEdad() const;
+	Persona* retPersDeMayorEdad() const;
 	string toString() const;
 
 	void ordenAscXCedula();

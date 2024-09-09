@@ -131,10 +131,23 @@ double ContenedorL::promedioEdad() const
 		cerr << "No hay personas" << endl;
 
 }
-Persona& ContenedorL::retPersDeMayorEdad() const
+Persona* ContenedorL::retPersDeMayorEdad() const
 {
-
-	return *new Persona;
+	Node* pExt = ppio;
+	Persona* perMayor = nullptr;
+	if (pExt != nullptr) {
+		perMayor = pExt->getPersona();
+		while (pExt->getNext() != NULL) {
+			if (pExt->getNext()->getPersona()->getEdad() > perMayor->getEdad())
+				perMayor = pExt->getNext()->getPersona();
+			pExt = pExt->getNext();
+		}
+		return perMayor;
+	}
+	else {
+		return nullptr;
+	}
+	return new Persona;
 }
 
 string ContenedorL::toString() const
